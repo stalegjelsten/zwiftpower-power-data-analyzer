@@ -1,0 +1,7 @@
+name: zwiftscrape
+dependencies:
+	- python=3.9
+	- numpy
+	- pandas
+	- jupyterlab
+    - BeautifulSoup4

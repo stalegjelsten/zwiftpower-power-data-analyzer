@@ -4,3 +4,4 @@ dependencies:
   - pandas
   - jupyterlab
   - BeautifulSoup4
+  - openpyxl

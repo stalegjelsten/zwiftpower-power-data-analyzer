@@ -8,7 +8,7 @@ I have chosen to run this script only selecting riders with a ZwiftPower Rank of
 
 All data from my specific use case for this is available in the `.csv` and `.xslx` files. 
 
-A live, interactive version is available at Binder ↓. Just follow the link, wait for the instace to load and open `zwiftpower-webscraping.ipynb`.  
+A live, interactive version is available at Binder ↓. Just follow the link, wait for the instace to load and open `zwiftpower-scraper.ipynb`.  
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/stalegjelsten/zwiftpower-power-data-analyzer/main)
 

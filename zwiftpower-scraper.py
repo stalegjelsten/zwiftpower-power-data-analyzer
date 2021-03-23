@@ -14,8 +14,13 @@ from bs4 import BeautifulSoup
 
 # max_rank: max zwiftpower rank for rider to be included in analysis
 # print_progress = n: print progress for every n'th rider
-# all_riders = False: use top ~1000 ranked riders. If True, use all ZP riders
+# all_riders = False: use top ~1000 ranked riders. If True, use all ZP 
+#   riders
 # analysis_data_cache = True: use cached data for analysis. 
+# power_tolerance is the max discrepancy between power meter reading
+#   and smart trainer reading you are willing to accept. A value of 0.15
+#   means that any race with a larger discrepancy than 15 % will be 
+#   discarded
 
 ########################################################################
 # START USER CONFIG ZONE
@@ -23,7 +28,7 @@ from bs4 import BeautifulSoup
 
 max_rank = 500                      
 print_progress = 20                  
-all_riders = True                  
+all_riders = False                  
 analysis_data_cache = True          
 power_tolerance = 0.15
 
@@ -315,24 +320,10 @@ df = df[~df.duplicated(keep="first")]
 # calculate the delta (diffrence) between power meter and smart trainer
 df["delta"] = df["p300s_pm"] - df["p300s_st"]
 
-# %%
-df.drop("name", axis=1).to_csv("data_top_1000.csv")
-
 
 # %%
 # export to csv without rider names
-#df.drop("name", axis = 1).to_csv("data_full_dataset.csv")
-df.to_excel("data_new_2.xlsx")
+df.drop("name", axis = 1).to_csv("data_full_dataset.csv")
+#df.drop("name", axis = 1).to_excel("data_full_dataset.xlsx")
 
 
-# %%
-#df.groupby("st_simplified")["delta"].mean()
-
-
-
-# %%
-#df.loc[df["st_simplified"] == "bkool_smart_pro"]
-# %%
-# df.to_pickle("dataframe.pkl")
-
-# %%
